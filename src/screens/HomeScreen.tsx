@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 150,
-    height: 150,
-    marginTop: -210,
-    marginBottom: 50,
+    width: 170,
+    height: 170,
+    marginTop: -160,
+    marginBottom: 70,
   },
   title: {
     fontSize: 24,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 40,
   },
   button: {
     backgroundColor: '#1E90FF',

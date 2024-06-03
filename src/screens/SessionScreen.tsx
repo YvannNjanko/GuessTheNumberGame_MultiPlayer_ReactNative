@@ -3,10 +3,12 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
+
 type RootStackParamList = {
   Session: undefined;
   'Lobby Screen': undefined;
   'Select Session': undefined;
+  'Login': undefined;
 };
 
 type SessionScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Session'>;
@@ -18,6 +20,14 @@ type Props = {
 };
 
 const SessionScreen: React.FC<Props> = ({ navigation }) => {
+  const disconnect = async () => {
+    try {
+      navigation.navigate('Login');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -31,6 +41,10 @@ const SessionScreen: React.FC<Props> = ({ navigation }) => {
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Select Session')}>
         <Text style={styles.buttonText}>Rejoindre une session</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={disconnect}>
+        <Text style={styles.buttonText}>Sign Out</Text>
       </TouchableOpacity>
     </View>
   );
@@ -46,8 +60,8 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     height: 250,
-    marginTop: -210,
-    marginBottom: 50,
+    marginTop: -150,
+    marginBottom: 100,
   },
   button: {
     backgroundColor: '#1E90FF',
